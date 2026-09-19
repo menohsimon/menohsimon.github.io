@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simon David Menoh — Creative Computer Engineer</title>
+  <meta name="description"
+    content="Portfolio of Simon David Menoh, Computer Engineer and Computer Science Graduate specializing in Frontend, Databases, Systems, and Scalable Cloud Platforms.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Ambient Floating Background Particles -->
+  <canvas id="ambientCanvas" class="ambient-canvas"></canvas>
+
+  <!-- Main Viewport / Centered Portfolio Card -->
+  <main class="portfolio-container">
+    <div class="portfolio-card" id="portfolioCard">
+
+      <!-- Ambient Top-Left Corner Glow -->
+      <div class="corner-glow" aria-hidden="true"></div>
+
+      <!-- Top Navigation Bar -->
+      <header class="card-navbar">
+        <div class="brand-logo">
+          <a href="#" class="brand-link" id="brandLogo" aria-label="Menoh Home">
+            <span class="logo-text">Menoh</span>
+            <span class="logo-dot">.</span>
+          </a>
+        </div>
+
+        <nav class="nav-links" aria-label="Main Navigation">
+          <button type="button" class="nav-btn" id="navAboutBtn" data-modal="aboutModal">About Me</button>
+          <button type="button" class="nav-btn" id="navProjectsBtn" data-modal="projectsModal">Projects</button>
+          <button type="button" class="nav-btn" id="navContactBtn" data-modal="contactModal">Contact</button>
+        </nav>
+      </header>
+
+      <!-- Main Hero Stage -->
+      <section class="card-hero" aria-label="Introduction">
+
+        <!-- Left Column: Name & Greeting with Dynamic Entrance -->
+        <div class="hero-left">
+          <div class="greeting-wrapper">
+            <span class="status-pill">
+              <span class="status-dot"></span>
+              <span class="status-text">Available for Opportunities</span>
+            </span>
+            <span class="greeting-subtitle">Hello, I'm</span>
+          </div>
+          <h1 class="hero-name" id="heroName" aria-label="Simon David">
+            <span class="name-line decrypt-line" data-value="Simon">Simon</span>
+            <span class="name-line decrypt-line" data-value="David">David</span>
+          </h1>
+          <div class="hero-tags">
+            <span class="tag-pill"><span class="tag-icon">⚡</span>Frontend</span>
+            <span class="tag-pill"><span class="tag-icon">🗄️</span>Databases</span>
+            <span class="tag-pill"><span class="tag-icon">⚙️</span>Systems</span>
+          </div>
+        </div>
+
+        <!-- Center Column: Simon's Portrait with Radiant Violet Halo -->
+        <div class="hero-center">
+          <div class="portrait-stage" id="portraitStage">
+            <!-- Radiant Violet Radial Glow Behind Portrait -->
+            <div class="violet-halo" aria-hidden="true"></div>
+
+            <!-- Simon David's Transparent Cutout Portrait -->
+            <img src="simon-cutout.png" alt="Simon David Menoh — Computer Engineer" class="portrait-img"
+              id="portraitImg" width="768" height="1024" loading="eager">
+
+            <!-- Bottom Seamless Dark Blend Overlay -->
+            <div class="portrait-bottom-mask" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <!-- Right Column: Creative Computer Engineer Title with Dynamic Morphing Role -->
+        <div class="hero-right">
+          <div class="role-wrapper">
+            <div class="role-prefix-row">
+              <span class="role-prefix">Creative</span>
+              <span class="role-sparkle">✦</span>
+            </div>
+            <h2 class="role-headline" id="roleHeadline" aria-label="Computer Engineer">
+              <span class="role-gradient dynamic-role" id="dynamicRole">Computer Engineer</span>
+              <span class="typing-cursor" aria-hidden="true">|</span>
+            </h2>
+            <p class="role-description">
+              Engineering full-stack web applications, scalable database architectures, and real-world technology
+              solutions.
+            </p>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Bottom Bar: Social Icons on Left, Resume on Right -->
+      <footer class="card-footer">
+
+        <!-- Bottom-Left: LinkedIn & GitHub Only -->
+        <div class="social-links-vertical" aria-label="Social Profiles">
+          <!-- LinkedIn Link -->
+          <a href="https://www.linkedin.com/in/simon-david-menoh-29662a308" target="_blank" rel="noopener noreferrer"
+            class="social-icon-btn" id="linkedinBtn" aria-label="Simon David Menoh LinkedIn Profile">
+            <svg class="social-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+            <span class="tooltip">LinkedIn</span>
+          </a>
+
+          <!-- GitHub Link -->
+          <a href="https://github.com/menohsimon" target="_blank" rel="noopener noreferrer" class="social-icon-btn"
+            id="githubBtn" aria-label="Simon David Menoh GitHub Profile">
+            <svg class="social-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+              </path>
+            </svg>
+            <span class="tooltip">GitHub</span>
+          </a>
+        </div>
+
+        <!-- Bottom-Right: Resume Button with External Box Icon -->
+        <div class="resume-wrapper">
+          <button type="button" class="resume-btn" id="resumeBtn" data-modal="resumeModal"
+            aria-label="Open Resume Preview">
+            <span class="resume-text">RESUME</span>
+            <span class="resume-icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="9" y1="15" x2="15" y2="9"></line>
+                <polyline points="10 9 15 9 15 14"></polyline>
+              </svg>
+            </span>
+          </button>
+        </div>
+
+      </footer>
+
+    </div>
+  </main>
+
+  <!-- ==================== INTERACTIVE MODALS ==================== -->
+
+  <!-- 1. ABOUT ME MODAL (Academic & Professional Records) -->
+  <dialog id="aboutModal" class="glass-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span class="modal-badge">Professional & Academic Profile</span>
+          <h3 class="modal-title">About Simon David Menoh</h3>
+        </div>
+        <button type="button" class="modal-close-btn" data-close="aboutModal" aria-label="Close modal">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <p class="modal-lead">
+          I am a <strong>Computer Engineer</strong> and Computer Science graduate with practical experience in
+          full-stack web development, database management, and software engineering. Passionate about Artificial
+          Intelligence, Data Analytics, and building technology solutions that solve real-world problems. Quick learner,
+          collaborative team member, and eager to contribute to innovative organizations.
+        </p>
+
+        <!-- Technical & Soft Skills Matrix -->
+        <div class="modal-grid">
+          <div class="info-card">
+            <h4>Technical Stack</h4>
+            <div class="skills-badges">
+              <span class="skill-tag">React</span>
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">Convex</span>
+              <span class="skill-tag">JavaScript (ES6+)</span>
+              <span class="skill-tag">CSS3</span>
+              <span class="skill-tag">HTML5</span>
+              <span class="skill-tag">Tailwind CSS</span>
+              <span class="skill-tag">Relational Databases</span>
+              <span class="skill-tag">SQL</span>
+              <span class="skill-tag">Git & GitHub</span>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h4>Professional Skills</h4>
+            <ul>
+              <li>Team Collaboration & Guidance</li>
+              <li>Problem Solving & Critical Thinking</li>
+              <li>Analytical Thinking & Data Logic</li>
+              <li>Time Management & Organization</li>
+              <li>Adaptability & Fast Learner</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Professional Experience & Accomplishments -->
+        <div class="education-block" style="margin-bottom: 20px;">
+          <h4>Professional Experience & Industry Credentials</h4>
+          <div class="edu-list">
+            <div class="edu-item">
+              <div class="edu-title">OLA ENERGY CAMEROON — Internship</div>
+              <div class="edu-sub">14/07/2025 – 26/08/2025 • Full-Time Technical Internship</div>
+              <p class="entry-sub-desc">Worked in team setting providing technical guidance, cross-functional collaboration, and enterprise system support.</p>
+            </div>
+            <div class="edu-item">
+              <div class="edu-title">Meta: Introduction to Databases</div>
+              <div class="edu-sub">Coursera Verified Certificate • Completed: 08 May 2024</div>
+            </div>
+            <div class="edu-item">
+              <div class="edu-title">Google: Foundations of Project Management</div>
+              <div class="edu-sub">Coursera Verified Certificate • Completed: 16 December 2025</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Academic Background -->
+        <div class="education-block">
+          <h4>Academic Education</h4>
+          <div class="edu-list">
+            <div class="edu-item">
+              <div class="edu-title">The ICT University, Yaoundé</div>
+              <div class="edu-sub">Bachelor of Science in Computer Science — Completed: July 2026</div>
+            </div>
+            <div class="edu-item">
+              <div class="edu-title">Douala Academy of Arts and Science, Douala</div>
+              <div class="edu-sub">GCE Advanced Level — Completed: September 2021</div>
+            </div>
+            <div class="edu-item">
+              <div class="edu-title">Fultang Bilingual School, Nkongsamba</div>
+              <div class="edu-sub">GCE Ordinary Level — Completed: September 2019</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="languages-block">
+          <h4>Languages & Additional Capabilities</h4>
+          <div class="lang-pills">
+            <span class="lang-tag">English: Full Professional</span>
+            <span class="lang-tag">French: Native or Bilingual</span>
+            <span class="lang-tag">Driving</span>
+            <span class="lang-tag">Social Media Management</span>
+            <span class="lang-tag">Graphic Design</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </dialog>
+
+  <!-- 2. PROJECTS MODAL (Featured Flagship: LogiTrack) -->
+  <dialog id="projectsModal" class="glass-modal">
+    <div class="modal-content modal-large">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span class="modal-badge">Featured Production Platform</span>
+          <h3 class="modal-title">Featured Project: LogiTrack</h3>
+        </div>
+        <button type="button" class="modal-close-btn" data-close="projectsModal"
+          aria-label="Close modal">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <article class="flagship-project-card">
+          <div class="flagship-badge-row">
+            <span class="flagship-pill">Final Year Project</span>
+            <span class="project-year">July 2026</span>
+          </div>
+
+          <h4 class="flagship-title">LogiTrack — Smart Logistics Marketplace & Real-Time Tracking</h4>
+          <p class="flagship-tagline">
+            Design and Implementation of a Smart Logistics Marketplace and Real-Time Tracking Platform with Map-Based
+            Visualization and Service Matching.
+          </p>
+
+          <div class="flagship-highlights">
+            <div class="highlight-box">
+              <div class="hl-icon">🚚</div>
+              <div class="hl-content">
+                <strong>Logistics Marketplace</strong>
+                <p>Seamlessly connects cargo shippers and businesses with verified transport providers for transparent
+                  freight operations.</p>
+              </div>
+            </div>
+
+            <div class="highlight-box">
+              <div class="hl-icon">🗺️</div>
+              <div class="hl-content">
+                <strong>Interactive Map-Based Tracking</strong>
+                <p>Provides live geospatial tracking for active shipments, dynamic route visualization, and real-time
+                  transit status updates.</p>
+              </div>
+            </div>
+
+            <div class="highlight-box">
+              <div class="hl-icon">📋</div>
+              <div class="hl-content">
+                <strong>Booking & Fleet Management</strong>
+                <p>Complete booking pipeline, company admin management, carrier dispatch, and cargo status coordination.
+                </p>
+              </div>
+            </div>
+
+            <div class="highlight-box">
+              <div class="hl-icon">🗄️</div>
+              <div class="hl-content">
+                <strong>Relational Database Architecture</strong>
+                <p>Engineered structured relational schemas ensuring transaction reliability, high concurrency, and data
+                  integrity.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flagship-tech-row">
+            <span class="tech-badge">React</span>
+            <span class="tech-badge">Convex</span>
+            <span class="tech-badge">JavaScript</span>
+            <span class="tech-badge">Map Visualization</span>
+            <span class="tech-badge">Tailwind CSS</span>
+            <span class="tech-badge">HTML5 / CSS3</span>
+            <span class="tech-badge">Vercel Deployment</span>
+          </div>
+
+          <!-- Recruiter Call to Action Links -->
+          <div class="flagship-actions-row">
+            <a href="https://logitrack-rust.vercel.app/" target="_blank" rel="noopener noreferrer"
+              class="action-btn demo-btn" id="projectDemoLink">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+              <span>Live Demo (logitrack-rust.vercel.app) ↗</span>
+            </a>
+
+            <a href="https://github.com/menohsimon/logitrack" target="_blank" rel="noopener noreferrer"
+              class="action-btn code-btn" id="projectSourceLink">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                </path>
+              </svg>
+              <span>View Source Code ↗</span>
+            </a>
+          </div>
+
+        </article>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- 3. CONTACT MODAL (With Direct Calling & Real Email Dispatch) -->
+  <dialog id="contactModal" class="glass-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span class="modal-badge">Get in Touch</span>
+          <h3 class="modal-title">Contact Simon David Menoh</h3>
+        </div>
+        <button type="button" class="modal-close-btn" data-close="contactModal"
+          aria-label="Close modal">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <p class="modal-lead">
+          I am actively seeking software engineering opportunities, full-stack web development projects, and innovative technical collaborations. Reach out to me directly:
+        </p>
+
+        <!-- Direct Contact Cards: Email & Phone -->
+        <div class="contact-channels-container">
+          <!-- Direct Email Channel Card -->
+          <div class="contact-channel-card email-channel-card">
+            <div class="channel-top">
+              <div class="channel-icon-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <div class="channel-header-text">
+                <span class="channel-tag">DIRECT EMAIL</span>
+                <span class="channel-value" id="emailText">menosimon6@gmail.com</span>
+              </div>
+            </div>
+            <div class="channel-actions-row">
+              <a href="mailto:menosimon6@gmail.com?subject=Inquiry%20from%20Portfolio" class="channel-primary-btn" id="directEmailBtn" aria-label="Open in Email App">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+                <span>Email Me</span>
+              </a>
+              <button type="button" class="channel-secondary-btn" id="copyEmailBtn" aria-label="Copy email address to clipboard">
+                <span class="copy-text">Copy</span>
+                <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Direct Phone Channel Card -->
+          <div class="contact-channel-card phone-channel-card">
+            <div class="channel-top">
+              <div class="channel-icon-circle phone-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+              </div>
+              <div class="channel-header-text">
+                <span class="channel-tag">DIRECT PHONE CALL</span>
+                <span class="channel-value">+237 656-872-040</span>
+              </div>
+            </div>
+            <div class="channel-actions-row">
+              <a href="tel:+237656872040" class="channel-primary-btn call-action-btn" aria-label="Call Simon Directly">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+                <span>Tap to Call (+237 656-872-040)</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Social Connections Quick Row -->
+        <div class="contact-social-pills">
+          <a href="https://www.linkedin.com/in/simon-david-menoh-29662a308" target="_blank" rel="noopener noreferrer" class="contact-social-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+            <span>LinkedIn Profile ↗</span>
+          </a>
+          <a href="https://github.com/menohsimon" target="_blank" rel="noopener noreferrer" class="contact-social-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg>
+            <span>GitHub Profile ↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- 4. RESUME MODAL (With Certificates Images, Coursera Links & Direct PDF Download) -->
+  <dialog id="resumeModal" class="glass-modal">
+    <div class="modal-content modal-large">
+      <div class="modal-header resume-modal-header">
+        <div class="modal-title-group">
+          <span class="modal-badge">Official Curriculum Vitae</span>
+          <h3 class="modal-title">Menoh Simon David — Resume</h3>
+        </div>
+        <a href="Menoh_Simon_David_Resume.pdf" download="Menoh_Simon_David_Resume.pdf" class="download-resume-btn" id="downloadResumeBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          Download Resume (PDF)
+        </a>
+        <button type="button" class="modal-close-btn" data-close="resumeModal"
+          aria-label="Close modal">&times;</button>
+      </div>
+
+      <div class="modal-body resume-preview-body">
+        <div class="resume-sheet">
+
+          <!-- Resume Header matching PDF -->
+          <div class="resume-header">
+            <div>
+              <h2 class="resume-name">MENOH SIMON DAVID</h2>
+              <div class="resume-role-tag">Computer Science Graduate & Computer Engineer</div>
+            </div>
+            <div class="resume-contact-meta">
+              <div>✉️ <a href="mailto:menosimon6@gmail.com" style="color: inherit; text-decoration: none;">menosimon6@gmail.com</a></div>
+              <div>📞 <a href="tel:+237656872040" style="color: inherit; text-decoration: none;">656-872-040</a></div>
+              <div>📍 Yaoundé, Cameroon</div>
+              <div>🔗 <a href="https://www.linkedin.com/in/simon-david-menoh-29662a308" target="_blank" rel="noopener noreferrer" style="color: #a78bfa;">LinkedIn Profile</a></div>
+              <div>💻 <a href="https://github.com/menohsimon" target="_blank" rel="noopener noreferrer" style="color: #a78bfa;">github.com/menohsimon</a></div>
+            </div>
+          </div>
+
+          <!-- Professional Summary -->
+          <div class="resume-section">
+            <h3 class="resume-sec-title">SUMMARY</h3>
+            <p class="resume-text-p">
+              Computer Science graduate with practical experience in full-stack web development, database management,
+              and software engineering. Passionate about Artificial Intelligence, Data Analytics, and building
+              technology solutions that solve real-world problems. Quick learner, collaborative team member, and eager
+              to contribute to innovative organizations.
+            </p>
+          </div>
+
+          <!-- Technical & Additional Skills -->
+          <div class="resume-section">
+            <h3 class="resume-sec-title">SKILLS</h3>
+            <div class="resume-skills-list">
+              <p><strong>Technical Stack:</strong> React, Python, Convex, JavaScript (ES6+), CSS3, HTML5, Tailwind CSS,
+                Relational Databases, SQL, Git & GitHub</p>
+              <p><strong>Professional Skills:</strong> Team Collaboration, Problem Solving, Communication, Time
+                Management, Adaptability, Analytical Thinking</p>
+              <p><strong>Additional Skills:</strong> Driving, Social Media Management, Graphic Design</p>
+              <p><strong>Languages:</strong> English (Full Professional), French (Native or Bilingual)</p>
+            </div>
+          </div>
+
+          <!-- Accomplishments & Verified Certificates (With Visual Pictures & Coursera Verification) -->
+          <div class="resume-section">
+            <h3 class="resume-sec-title">ACCOMPLISHMENTS & VERIFIED CERTIFICATES</h3>
+            
+            <div class="resume-entry">
+              <div class="entry-row">
+                <span class="entry-title">OLA ENERGY CAMEROON — Internship</span>
+                <span class="entry-date">14/07/2025 – 26/08/2025</span>
+              </div>
+              <ul class="resume-bullets">
+                <li>Worked well in a team setting, providing support and guidance.</li>
+                <li>Passionate about learning and committed to continual improvement.</li>
+                <li>Participated in team projects, demonstrating an ability to work collaboratively and effectively.</li>
+                <li>Adaptable and proficient in learning new concepts quickly and efficiently.</li>
+              </ul>
+            </div>
+
+            <!-- Verified Certificates Visual Showcase -->
+            <div class="certificates-showcase">
+              
+              <!-- Certificate 1: Meta -->
+              <div class="certificate-card">
+                <a href="https://coursera.org/share/d1e36bfa260bd8368230487d63f2f657" target="_blank" rel="noopener noreferrer" class="cert-thumb-link">
+                  <img src="cert-meta.jpg" alt="Meta Introduction to Databases Certificate — Precious Menoh" class="cert-img" loading="lazy">
+                  <span class="cert-hover-overlay">🔍 View Coursera Credential</span>
+                </a>
+                <div class="cert-info">
+                  <div class="cert-badge-tag">Meta Certified</div>
+                  <h4 class="cert-name">Introduction to Databases</h4>
+                  <p class="cert-date">Authorized by Meta • Completed: 08 May 2024</p>
+                  <a href="https://coursera.org/share/d1e36bfa260bd8368230487d63f2f657" target="_blank" rel="noopener noreferrer" class="view-cert-btn">
+                    <span>View Certificate</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Certificate 2: Google -->
+              <div class="certificate-card">
+                <a href="https://coursera.org/share/574b3d0bf09aa9884cfd0643c8cc726d" target="_blank" rel="noopener noreferrer" class="cert-thumb-link">
+                  <img src="cert-google.jpg" alt="Google Foundations of Project Management Certificate — Precious Menoh" class="cert-img" loading="lazy">
+                  <span class="cert-hover-overlay">🔍 View Coursera Credential</span>
+                </a>
+                <div class="cert-info">
+                  <div class="cert-badge-tag">Google Certified</div>
+                  <h4 class="cert-name">Foundations of Project Management</h4>
+                  <p class="cert-date">Authorized by Google • Completed: 16 December 2025</p>
+                  <a href="https://coursera.org/share/574b3d0bf09aa9884cfd0643c8cc726d" target="_blank" rel="noopener noreferrer" class="view-cert-btn">
+                    <span>View Certificate</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- Key Project -->
+          <div class="resume-section">
+            <h3 class="resume-sec-title">KEY PROJECT</h3>
+            <div class="resume-entry">
+              <div class="entry-row">
+                <span class="entry-title">LogiTrack – Smart Logistics Marketplace</span>
+                <span class="entry-date">04/07/2026</span>
+              </div>
+              <p class="entry-desc" style="color: #a78bfa; margin-bottom: 6px;">The ICT University — Final Year Project</p>
+              <ul class="resume-bullets">
+                <li>Developed a logistics platform connecting customers with transport providers.</li>
+                <li>Implemented real-time shipment tracking using interactive maps.</li>
+                <li>Built booking and company management features.</li>
+                <li>Designed relational databases for logistics operations.</li>
+                <li>Focused on improving transparency and logistics efficiency.</li>
+                <li>Live Demo: <a href="https://logitrack-rust.vercel.app/" target="_blank" rel="noopener noreferrer"
+                    style="color: #c4b5fd;">logitrack-rust.vercel.app</a> | Repo: <a
+                    href="https://github.com/menohsimon/logitrack" target="_blank" rel="noopener noreferrer"
+                    style="color: #c4b5fd;">github.com/menohsimon/logitrack</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Education -->
+          <div class="resume-section">
+            <h3 class="resume-sec-title">EDUCATION</h3>
+
+            <div class="resume-entry">
+              <div class="entry-row">
+                <span class="entry-title">THE ICT UNIVERSITY, Yaoundé</span>
+                <span class="entry-date">Completed: July 2026</span>
+              </div>
+              <p class="entry-desc">Completed Coursework: Bachelor of Science in Computer Science</p>
+            </div>
+
+            <div class="resume-entry">
+              <div class="entry-row">
+                <span class="entry-title">Douala Academy of Arts and Science, Douala</span>
+                <span class="entry-date">Completed: September 2021</span>
+              </div>
+              <p class="entry-desc">Completed Coursework: GCE ADVANCED LEVEL</p>
+            </div>
+
+            <div class="resume-entry">
+              <div class="entry-row">
+                <span class="entry-title">Fultang Bilingual School, Nkongsamba</span>
+                <span class="entry-date">Completed: September 2019</span>
+              </div>
+              <p class="entry-desc">Completed Coursework: GCE ORDINARY LEVEL</p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Notification Toast -->
+  <div id="toast" class="toast-notification" aria-live="polite"></div>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+
+</html>
