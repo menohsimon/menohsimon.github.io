@@ -633,8 +633,8 @@ body {
   border: none;
   background: transparent;
   padding: 0;
-  max-width: 90vw;
-  width: 580px;
+  max-width: 92vw;
+  width: 630px;
   margin: auto;
   position: fixed;
   inset: 0;
@@ -1033,11 +1033,12 @@ body {
   background: rgba(255, 255, 255, 0.035);
   border: 1px solid rgba(139, 92, 246, 0.22);
   border-radius: 14px;
-  padding: 18px 22px;
+  padding: 16px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
+  flex-wrap: wrap;
   transition: var(--transition-smooth);
 }
 
@@ -1051,12 +1052,14 @@ body {
 .channel-top {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
+  min-width: 0;
+  flex: 1 1 auto;
 }
 
 .channel-icon-circle {
-  width: 46px;
-  height: 46px;
+  width: 44px;
+  height: 44px;
   border-radius: 12px;
   background: rgba(139, 92, 246, 0.15);
   border: 1px solid rgba(139, 92, 246, 0.35);
@@ -1068,8 +1071,8 @@ body {
 }
 
 .channel-icon-circle svg {
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
 }
 
 .channel-icon-circle.phone-icon {
@@ -1081,12 +1084,13 @@ body {
 .channel-header-text {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 2px;
+  min-width: 0;
 }
 
 .channel-tag {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   color: #a78bfa;
   letter-spacing: 0.6px;
   font-weight: 600;
@@ -1097,37 +1101,42 @@ body {
 }
 
 .channel-value {
-  font-size: 1.05rem;
+  font-size: 0.98rem;
   font-weight: 700;
   color: var(--text-primary);
   letter-spacing: -0.2px;
+  word-break: break-word;
 }
 
 .channel-actions-row {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
+  flex-shrink: 0;
+  margin-left: auto;
 }
 
 .channel-primary-btn {
   background: linear-gradient(135deg, var(--violet-glow), var(--indigo-glow));
   color: #ffffff;
-  padding: 10px 20px;
+  padding: 9px 16px;
   border-radius: 10px;
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   font-weight: 600;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
+  gap: 7px;
   transition: var(--transition-smooth);
   box-shadow: 0 4px 16px rgba(139, 92, 246, 0.35);
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .channel-primary-btn svg {
-  width: 15px;
-  height: 15px;
+  width: 14px;
+  height: 14px;
 }
 
 .channel-primary-btn:hover {
@@ -1146,22 +1155,26 @@ body {
 
 .channel-secondary-btn {
   background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   color: var(--text-primary);
-  padding: 10px 16px;
+  padding: 9px 14px;
   border-radius: 10px;
-  font-size: 0.85rem;
+  font-size: 0.84rem;
   font-weight: 600;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
   transition: var(--transition-smooth);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .channel-secondary-btn:hover {
-  background: var(--violet-glow);
+  background: rgba(139, 92, 246, 0.25);
   border-color: var(--violet-glow);
+  box-shadow: 0 0 16px rgba(139, 92, 246, 0.35);
   transform: translateY(-2px);
 }
 

@@ -365,13 +365,13 @@ function initEmailCopy() {
   copyBtn.addEventListener('click', () => {
     const email = emailText.textContent.trim();
     navigator.clipboard.writeText(email).then(() => {
-      showToast('Copied menosimon6@gmail.com to clipboard!');
+      showToast(`Copied ${email} to clipboard!`);
       copyBtn.querySelector('.copy-text').textContent = 'Copied!';
       setTimeout(() => {
         copyBtn.querySelector('.copy-text').textContent = 'Copy';
       }, 2500);
     }).catch(() => {
-      showToast('Email: menosimon6@gmail.com');
+      showToast(`Email: ${email}`);
     });
   });
 }
@@ -444,7 +444,7 @@ function initDynamicTypography() {
 
 /* ==========================================================================
    7. DYNAMIC ROLE TYPEWRITER: LIVE ROTATING ROLES
-   Showcases frontend development skills by dynamically typing, pausing,
+   Showcases nd development skills by dynamically typing, pausing,
    deleting, and cycling through Simon's core engineering specializations.
    ========================================================================== */
 function initDynamicRoleTypewriter() {
